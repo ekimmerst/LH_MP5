@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: MiniMP5
+## Notes: Estimated five-second timer on the Blizzard player mana bar.
+## Author: MiniMP5
+## Version: 1.3.2
+
+MiniMP5.lua
