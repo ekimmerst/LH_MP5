@@ -1,4 +1,5 @@
 ## Interface: 16001
+## Dependencies: LH_Tweaks
 ## Title: LH_MP5
 ## Notes: Estimated five-second timer on the Blizzard player mana bar.
 ## Author: LH_MP5

@@ -10,7 +10,7 @@ LH_MP5 is a lightweight World of Warcraft AddOn that displays an estimated five-
 - Successful spells with a reported mana cost restart the timer.
 - Wand shots and spells with no reported mana cost leave an existing timer running.
 - Automatically hides for rage, energy, and other resources.
-- No configuration, slash commands, or dependencies.
+- No configuration or slash commands; requires LH_Tweaks.
 
 ## Installation
 
@@ -40,3 +40,7 @@ LH_MP5 attaches to Blizzard's player mana bar. Replacement unit frames are not s
 
 - Renamed MiniMP5 to LH_MP5, including the addon folder, Lua/TOC filenames, metadata and documentation.
 - Timer behavior is unchanged; no configuration or slash commands are required.
+
+## Required core addon
+
+Install and enable **LH_Tweaks** alongside this addon. LH_Tweaks is the shared LiteHawk configuration host and must load first. CurseForge releases must list LH_Tweaks as a required dependency so the client installs it automatically.
