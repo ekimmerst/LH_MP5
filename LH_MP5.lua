@@ -1,6 +1,16 @@
+local addonName = ...
+local Addon = {}
+LH_MP5 = Addon
 local DURATION = 5
 local driver = CreateFrame("Frame")
 local overlay, spark, bar, castEnd
+
+local function InitializeSettings()
+    LH_MP5DB = type(LH_MP5DB) == "table" and LH_MP5DB or {}
+    LH_MP5DB.enabled = LH_MP5DB.enabled ~= false
+end
+
+function Addon:IsEnabled() return type(LH_MP5DB) ~= "table" or LH_MP5DB.enabled ~= false end
 
 local function Readable(value)
     if issecretvalue and issecretvalue(value) then return false end
@@ -59,6 +69,7 @@ local function Reset()
 end
 
 local function Update()
+    if not Addon:IsEnabled() then Reset(); return end
     if not castEnd then return end
     if not UsesMana() then
         Reset()
@@ -79,13 +90,21 @@ local function Update()
     end
 end
 
+function Addon:SetEnabled(enabled)
+    InitializeSettings()
+    LH_MP5DB.enabled = enabled == true
+    if LH_MP5DB.enabled then Attach() else Reset() end
+    if self.RefreshSettings then self:RefreshSettings() end
+end
+
 driver:SetScript("OnEvent", function(_, event, unit, castGUID, spellID)
     if event == "PLAYER_ENTERING_WORLD" then
-        Attach()
+        if Addon:IsEnabled() then Attach() end
         Reset()
     elseif event == "ADDON_LOADED" then
-        Attach()
-    elseif Readable(unit) and unit == "player" then
+        if unit == addonName then InitializeSettings() end
+        if Addon:IsEnabled() then Attach() end
+    elseif Addon:IsEnabled() and Readable(unit) and unit == "player" then
         if event == "UNIT_DISPLAYPOWER" then
             Attach()
             Reset()
@@ -100,4 +119,17 @@ driver:SetScript("OnUpdate", Update)
 for _, event in ipairs({ "PLAYER_ENTERING_WORLD", "ADDON_LOADED",
     "UNIT_SPELLCAST_SUCCEEDED", "UNIT_DISPLAYPOWER" }) do
     driver:RegisterEvent(event)
+end
+
+SLASH_LH_MP51 = "/lh_mp5"
+SlashCmdList.LH_MP5 = function(message)
+    local command = (message or ""):lower():match("^%s*(.-)%s*$")
+    if command == "on" or command == "off" then
+        Addon:SetEnabled(command == "on")
+        print(Addon:IsEnabled() and "LH_MP5: Enabled." or "LH_MP5: Disabled.")
+    elseif command == "" and Addon.category then
+        Settings.OpenToCategory(Addon.category:GetID())
+    else
+        print("LH_MP5: /lh_mp5 on | off. Use /lh_mp5 to open settings.")
+    end
 end
