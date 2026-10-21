@@ -1,6 +1,8 @@
-# MiniMP5
+# LH_MP5
 
-MiniMP5 is a lightweight World of Warcraft AddOn that displays an estimated five-second-rule timer directly on Blizzard's default player mana bar.
+Version: 1.3.3
+
+LH_MP5 is a lightweight World of Warcraft AddOn that displays an estimated five-second-rule timer directly on Blizzard's default player mana bar.
 
 ## Features
 
@@ -12,11 +14,15 @@ MiniMP5 is a lightweight World of Warcraft AddOn that displays an estimated five
 
 ## Installation
 
-1. Download the repository and extract it into your WoW client's `Interface/AddOns` directory.
-2. Name the AddOn folder `MiniMP5`. It should contain `MiniMP5.toc` and `MiniMP5.lua` directly.
-3. Restart WoW and enable **MiniMP5** in the character selection screen's AddOns list.
+1. Copy the addon files into your WoW client's `Interface/AddOns` directory.
+2. Name the AddOn folder `LH_MP5`. It should contain `LH_MP5.toc` and `LH_MP5.lua` directly.
+3. Restart WoW and enable **LH_MP5** in the character selection screen's AddOns list.
 
 After updating an existing installation, use `/reload` to load the changes.
+
+## Upgrading from MiniMP5
+
+Replace the old `MiniMP5` folder with `LH_MP5` and fully restart WoW. Enable **LH_MP5** in the AddOns list. Do not enable both versions together. There are no saved settings to migrate.
 
 ## Usage
 
@@ -26,4 +32,11 @@ Play a character that uses mana with Blizzard's default player frame visible. Af
 
 The timer estimates the five-second rule from spell costs reported by the game API. It does not measure actual mana spent or detect the start of mana regeneration. Temporary cost reductions are reflected only when the API reports them; unreadable spell data is skipped.
 
-MiniMP5 attaches to Blizzard's player mana bar. Replacement unit frames are not supported.
+LH_MP5 attaches to Blizzard's player mana bar. Replacement unit frames are not supported.
+
+## Changelog
+
+### 1.3.3 - 2026-10-21
+
+- Renamed MiniMP5 to LH_MP5, including the addon folder, Lua/TOC filenames, metadata and documentation.
+- Timer behavior is unchanged; no configuration or slash commands are required.
