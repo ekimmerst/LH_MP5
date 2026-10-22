@@ -1,5 +1,7 @@
 <h1 style="color: #d9a94b;">LH MP5</h1>
 
+<p>Show an estimated five-second mana regeneration timer directly on the Blizzard player mana bar after casting.</p>
+
 <p>A quiet visual reminder of WoW's five-second mana rule, placed right on the Blizzard player mana bar. It helps you see when a pause after casting is about to end without adding another frame to your screen.</p>
 
 <h2 style="color: #73c9c4;">How it works</h2>
