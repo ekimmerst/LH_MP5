@@ -43,5 +43,13 @@
 
 <p><strong>LH Tweaks is required</strong> and must be installed alongside LH MP5. I made this for my own mana users and am happy if it helps yours. Please post feedback, spell cases that look wrong, and ideas in the CurseForge comments.</p>
 
+<h2 style="color: #73c9c4;">Changelog</h2>
+
+<p><strong>1.4.0 - Forever</strong></p>
+
+<ul>
+  <li>No gameplay changes in this Forever branch; the estimated five-second mana timer remains available.</li>
+</ul>
+
 <hr>
-<p><sup>*</sup> Implemented with the help of Codex and GPT-6-SOL and tested by me as thoroughly as I could in the WoW beta client. Some class or race abilities may still need work; please report anything you notice.</p>
+<p><sup>*</sup> Implemented with the help of Codex and GPT-6-SOL. Some class or race abilities may still need work; please report anything you notice.</p>
